@@ -10,7 +10,8 @@
 |password|string|null: false|
 
 ### Association
-- has_many :groups
+- has_many :groups_users
+- has_many :groups, through: :groups_users
 - has_many :comments
 
 
@@ -18,12 +19,14 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|string|null: false|
-|group|string|null: false|
+|name|string|null: false|
+
+
 
 ### Association
-- belongs_to :user
-- has_many :comments
+- has_many :group_users
+- has_many :users through: :groups_users
+- has_many :coments
 
 
 ## comentsテーブル
@@ -33,6 +36,7 @@
 |text|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
+|image|text||
 
 ### Association
 - belongs_to :user
