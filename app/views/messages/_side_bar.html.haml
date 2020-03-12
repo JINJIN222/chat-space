@@ -2,14 +2,14 @@
   .side_header
     .side_header__box
       %p.side_header__box__user_name
-        じんじん
+        = current_user.name 
       %ul.side_header__box__menu
         %li.side_header__box__menu__new_grope
           = link_to "#" do
-            %i.fa.fa-edit
+            = icon('fas', 'pen-square', class: 'icon')
         %li.side_header__box__menu__edit_user
-          = link_to "#" do
-            %i.fa.fa-cog
+          = link_to edit_user_path(current_user) do
+            = icon('fas', 'cog', class: 'icon')
   .groups
     .group
       = link_to "#" do
